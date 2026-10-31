@@ -5,7 +5,6 @@ import static git.artdeell.mojo.Tools.shareLog;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,7 +60,7 @@ public class MainMenuFragment extends Fragment {
         Button mPlayButton = view.findViewById(R.id.play_button);
         mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        {
             for(Button sideButton : new Button[]{mNewsButton, mDiscordButton, mCustomControlButton, mInstallJarButton, mShareLogsButton, mOpenDirectoryButton}) {
                 if(sideButton instanceof LauncherMenuButton) ((LauncherMenuButton) sideButton).compact();
             }

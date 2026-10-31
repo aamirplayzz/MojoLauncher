@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -41,3 +44,17 @@ jobs:
         with:
           name: AnimeLauncher-APK
           path: app_mojo/build/outputs/apk/full/debug/*.apk
+
+      - name: Rename APK
+        run: cp app_mojo/build/outputs/apk/full/debug/*.apk AnimeLauncher.apk
+
+      - name: Publish public download (Releases)
+        if: github.ref_name == 'v3_openjdk'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Anime Launcher (latest build)
+          body: |
+            Latest Anime Launcher APK. Download AnimeLauncher.apk below and install it.
+            Built from commit ${{ github.sha }}.
+          files: AnimeLauncher.apk

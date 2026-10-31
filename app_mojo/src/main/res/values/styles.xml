@@ -80,6 +80,15 @@
         <item name="android:background">@drawable/anime_nav_item</item>
     </style>
 
+    <style name="LauncherMenuButton.Tile" parent="LauncherMenuButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:minHeight">@dimen/_42sdp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/anime_tile</item>
+    </style>
+
     <style name="ThickDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/_1sdp</item>
