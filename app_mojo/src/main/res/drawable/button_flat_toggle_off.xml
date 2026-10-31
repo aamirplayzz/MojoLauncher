@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape>
-            <solid android:color="?android:attr/colorControlNormal"/>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/anime_purple_deep" />
+            <corners android:radius="12dp" />
             <size android:height="25dp"/>
         </shape>
     </item>

@@ -23,6 +23,8 @@ public class MineButton extends androidx.appcompat.widget.AppCompatButton {
 		setTypeface(ResourcesCompat.getFont(getContext(), R.font.noto_sans_bold));
 		setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.mine_button_background, null));
 		setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen._13ssp));
+		setTextColor(0xFFFFFFFF);
+		setShadowLayer(6f, 0f, 3f, 0xFF3A1488);
 	}
 
 }

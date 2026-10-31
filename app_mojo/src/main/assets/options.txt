@@ -5,13 +5,13 @@ gamma:0.5070422
 saturation:0.0
 renderDistance:2
 simulationDistance:5
-renderClouds:"fast"
-guiScale:3
-particles:1
+renderClouds:"false"
+guiScale:2
+particles:2
 bobView:false
 anaglyph3d:false
 advancedOpengl:false
-maxFps:260
+maxFps:60
 fboEnable:true
 difficulty:2
 fancyGraphics:false
@@ -95,3 +95,5 @@ soundCategory_hostile:1.0
 soundCategory_neutral:1.0
 soundCategory_player:1.0
 soundCategory_ambient:1.0
+entityShadows:false
+biomeBlendRadius:0

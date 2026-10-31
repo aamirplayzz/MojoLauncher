@@ -3,16 +3,24 @@
     <color name="control_button_color">#4CC4C4C4</color>
     <color name="control_button_pressed_color">#4D000000</color>
 
-    <color name="minebutton_color">#91dffb</color>
-    <color name="minebutton_secondary">#2a2a2a</color>
-    <color name="background_app">#181818</color>
+    <!-- Anime Launcher palette: deep violet night + neon purple -->
+    <color name="anime_purple">#9B4DFF</color>
+    <color name="anime_purple_light">#C58BFF</color>
+    <color name="anime_purple_dark">#5B1FB5</color>
+    <color name="anime_purple_deep">#2B0F63</color>
+    <color name="anime_pink">#FF5CC8</color>
+    <color name="anime_card">#1B0F3D</color>
+
+    <color name="minebutton_color">#B66CFF</color>
+    <color name="minebutton_secondary">#2E1A5C</color>
+    <color name="background_app">#0C0720</color>
     <color name="divider">@color/background_overlay</color>
-    <color name="background_overlay">#464646</color>
-    <color name="background_status_bar">#242424</color>
-    <color name="background_bottom_bar">#232323</color>
+    <color name="background_overlay">#3A2178</color>
+    <color name="background_status_bar">#150B33</color>
+    <color name="background_bottom_bar">#190E3F</color>
     <color name="icon_outline_color">#FFFFFF</color>
 
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#B2B2B2</color>
+    <color name="secondary_text">#CDBBF2</color>
 
 </resources>

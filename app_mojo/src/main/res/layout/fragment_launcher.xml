@@ -8,7 +8,22 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:background="@color/background_app">
+	android:background="@drawable/anime_bg_gradient">
+	<!-- Anime artwork behind the menu (single small bitmap, no animation, cheap on low-end GPUs) -->
+	<ImageView
+		android:id="@+id/anime_menu_art"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:alpha="0.20"
+		android:importantForAccessibility="no"
+		android:scaleType="centerCrop"
+		android:src="@drawable/anime_bg"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
@@ -118,7 +133,7 @@
 		android:id="@+id/_background_display_view"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:background="@color/background_bottom_bar"
+		android:background="@drawable/anime_bottom_bar"
 		android:translationZ="-1dp"
 
 		app:layout_constraintBottom_toBottomOf="parent"
