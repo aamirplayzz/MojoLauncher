@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.kdt.mcgui.ProgressLayout;
+import git.artdeell.mojo.update.AnimeUpdater;
 import com.kdt.mcgui.mcVersionSpinner;
 
 import git.artdeell.mojo.CustomControlsActivity;
@@ -77,6 +78,7 @@ public class MainMenuFragment extends Fragment {
         mPlayButton.setOnClickListener(v -> ExtraCore.setValue(ExtraConstants.LAUNCH_GAME, true));
 
         bindSidebar(view);
+        AnimeUpdater.checkOnStart(requireActivity());
     }
 
     private void bindSidebar(View view) {
@@ -112,7 +114,8 @@ public class MainMenuFragment extends Fragment {
                 getString(R.string.mcl_option_customcontrol),
                 getString(R.string.main_install_jar_file),
                 getString(R.string.main_share_logs),
-                getString(R.string.mcl_button_open_directory)
+                getString(R.string.mcl_button_open_directory),
+                getString(R.string.anime_update_check)
         };
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.anime_tools_title)
@@ -124,6 +127,7 @@ public class MainMenuFragment extends Fragment {
                         case 3: runInstallerWithConfirmation(); break;
                         case 4: shareLog(requireContext()); break;
                         case 5: openGameDirectory(requireContext()); break;
+                        case 6: AnimeUpdater.check(requireActivity(), true); break;
                     }
                 })
                 .show();

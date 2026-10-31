@@ -587,4 +587,13 @@
     <string name="anime_close">Close</string>
     <string name="anime_source_code">Source code</string>
     <string name="anime_licenses">Licenses</string>
+    <string name="anime_update_check">Check for updates</string>
+    <string name="anime_update_available">Update available</string>
+    <string name="anime_update_message">A new version of Anime Launcher (build %1$d) is ready. Update now without leaving the app?</string>
+    <string name="anime_update_now">Update</string>
+    <string name="anime_update_later">Later</string>
+    <string name="anime_update_downloading">Downloading update…</string>
+    <string name="anime_update_latest">You are on the latest version.</string>
+    <string name="anime_update_failed">Could not check or download the update. Check your internet and try again.</string>
+    <string name="anime_update_allow_install">Allow installing apps from Anime Launcher, then press Update again.</string>
 </resources>

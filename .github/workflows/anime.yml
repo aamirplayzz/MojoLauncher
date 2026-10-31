@@ -59,5 +59,7 @@ jobs:
 
             NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
 
+            build: ${{ github.run_number }}
+
             Licensed under the GNU LGPL v3. Source code: https://github.com/aamirplayzz/MojoLauncher (built from commit ${{ github.sha }}). See NOTICE.md for licenses and changes.
           files: AnimeLauncher.apk

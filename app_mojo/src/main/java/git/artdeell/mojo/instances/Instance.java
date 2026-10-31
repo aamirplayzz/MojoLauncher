@@ -106,7 +106,7 @@ public class Instance extends DisplayInstance {
     }
 
     public String getLaunchControls() {
-        if(!Tools.isValidString(controlLayout)) return LauncherPreferences.PREF_DEFAULTCTRL_PATH;
+        if(!Tools.isValidString(controlLayout) || "default.json".equals(controlLayout)) return LauncherPreferences.PREF_DEFAULTCTRL_PATH;
         return Tools.CTRLMAP_PATH + "/" + controlLayout;
     }
 
