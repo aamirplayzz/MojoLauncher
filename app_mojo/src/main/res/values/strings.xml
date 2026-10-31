@@ -245,7 +245,7 @@
     <string name="color_default_hex" translatable="false">FFFF0000</string>
     <string name="notif_channel_name">General</string>
     <string name="notif_channel_id" translatable="false">channel_id</string>
-    <string name="lazy_service_default_title">MJ Foreground Service</string>
+    <string name="lazy_service_default_title">Anime Launcher Foreground Service</string>
     <string name="mcl_setting_veroption_installed">Installed</string>
     <string name="use_global_default">(Use global default)</string>
     <string name="default_control">Default controlmap</string>
@@ -348,7 +348,7 @@
     <string name="modpack_download_downloading_mods">Downloading mods (%.2f MB / %.2f MB)</string>
     <string name="modpack_download_downloading_mods_fc">Downloading mods (File %d out of %d)</string>
     <string name="modpack_download_applying_overrides">Applying overrides (%d/%d)</string>
-    <string name="modpack_install_notification_title">MJ Modpack Installer</string>
+    <string name="modpack_install_notification_title">Anime Launcher Modpack Installer</string>
     <string name="modpack_install_notification_success">Click here to finish modpack installation</string>
     <string name="modpack_install_notification_data_not_available">Failed to download mod loader information</string>
     <string name="modpack_install_modloader_download_failed">Failed to download the mod loader files</string>
@@ -511,9 +511,9 @@
     <string name="preference_show_memory_warning_title">Show memory warning dialog</string>
     <string name="preference_show_memory_warning_summary">If enabled, displays the warning dialog that is shown during game launch if the amount of free memory is less than allocated to the game</string>
     <string name="option_do_not_show_again">Don\'t show again</string>
-    <string name="loading_screen_title">Waiting for a game window to appear…</string>
+    <string name="loading_screen_title">Preparing Your Anime Adventure…</string>
     <string name="loading_screen_booted">Ready - running on %1$s!</string>
-    <string name="loading_screen_warning">If you are stuck here, the game might have crashed</string>
+    <string name="loading_screen_warning">Crafting your world and loading assets. If you are stuck here, the game might have crashed</string>
     <string name="preference_metadata_clear">Clear metadata cache</string>
     <string name="preference_metadata_clear_summary">Removes all strings metadata cache and forces a rebuild. Use this if the launcher can\'t see new game or modloader versions</string>
     <string name="preference_metadata_clear_fail">Failed to remove cache files</string>
@@ -566,4 +566,12 @@
     <string name="pref_clean_partfiles_subtitle">Clear partially downloaded game files. %.2f MB of space in use</string>
     <string name="clean_partfiles_wait">Clearing download cache…</string>
     <string name="warn_auth_type_missing">%s is not available, using local account</string>
+
+    <string name="anime_welcome_to">Welcome to</string>
+    <string name="anime_word_anime">Anime</string>
+    <string name="anime_word_launcher">Launcher</string>
+    <string name="anime_tagline">Your Ultimate Anime Experience</string>
+    <string name="anime_news_header">Latest News</string>
+    <string name="anime_news_title">New Update Released!</string>
+    <string name="anime_news_body">Enjoy better performance and smooth gameplay with Anime Launcher.</string>
 </resources>

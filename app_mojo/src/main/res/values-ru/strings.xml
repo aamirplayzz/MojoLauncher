@@ -192,7 +192,7 @@
     <string name="pedit_java_runtime">Среда выполнения Java</string>
     <string name="pedit_renderer">Визуализатор</string>
     <string name="notif_channel_name">Общее</string>
-    <string name="lazy_service_default_title">Активная служба MJ</string>
+    <string name="lazy_service_default_title">Активная служба Anime Launcher</string>
     <string name="mcl_setting_veroption_installed">Установленные</string>
     <string name="use_global_default">(Как везде)</string>
     <string name="default_control">Раскладка управления</string>
@@ -446,9 +446,7 @@
     <string name="preference_show_memory_warning_summary">Если опция включена, при запуске игры отображается предупреждение если игре выделено больше памяти чем доступно в системе</string>
     <string name="option_do_not_show_again">Больше не показывать</string>
     <string name="preference_show_memory_warning_title">Показывать предупреждение о недостатке памяти</string>
-    <string name="loading_screen_title">Ожидание появления окна игры…</string>
     <string name="loading_screen_booted">Запущено - используется %1$s!</string>
-    <string name="loading_screen_warning">Если окно долго не появляется - возможно игра вылетела</string>
     <string name="preference_metadata_clear">Очистить кэш метаданных</string>
     <string name="preference_metadata_clear_summary">Полностью удаляет кэш метаданных строк. Используйте, если лаунчер не видит новые версии игры или загрузчиков модов</string>
     <string name="preference_metadata_clear_fail">Не удалось удалить файлы кэша</string>

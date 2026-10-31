@@ -4,165 +4,289 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_menu_main"
-    android:gravity="top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/anime_bg_gradient">
-    <!-- Anime artwork behind the menu (single small bitmap, no animation, cheap on low-end GPUs) -->
+
     <ImageView
         android:id="@+id/anime_menu_art"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="0.20"
         android:importantForAccessibility="no"
         android:scaleType="centerCrop"
-        android:src="@drawable/anime_bg"
+        android:src="@drawable/anime_scene"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/center_guideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.24" />
 
+    <ImageView
+        android:id="@+id/hero_art"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:scaleType="fitEnd"
+        android:src="@drawable/hero_art"
+        app:layout_constraintBottom_toTopOf="@+id/mc_version_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/hero_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hero_guideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <!-- Sidebar -->
+    <View
+        android:id="@+id/_background_display_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/anime_sidebar_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/center_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sidebar_logo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_94sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sidebar_logo"
+        app:layout_constraintEnd_toEndOf="@id/center_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/_background_display_view"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/center_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/sidebar_logo">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/center_guideline"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_8sdp">
+
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/news_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
+                style="@style/LauncherMenuButton.Side"
+                android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_px_book"
-                android:text="@string/mcl_tab_wiki"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/social_divider"/>
-            <View
-                android:id="@+id/social_divider"
-                style="@style/LauncherFragment_Divider"
-                android:layout_marginVertical="@dimen/padding_heavy"
-                app:layout_constraintTop_toTopOf="@id/news_button"
-                app:layout_constraintStart_toStartOf="@id/center_guideline"
-                app:layout_constraintEnd_toEndOf="@id/center_guideline"
-                app:layout_constraintBottom_toBottomOf="@id/news_button"/>
+                android:text="@string/mcl_tab_wiki" />
+
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/social_media_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
+                style="@style/LauncherMenuButton.Side"
+                android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_social_media"
-                android:text="@string/mcl_button_social_media"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/social_divider"/>
+                android:text="@string/mcl_button_social_media" />
 
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/custom_control_button"
-                style="@style/LauncherMenuButton.Universal"
+                style="@style/LauncherMenuButton.Side"
                 android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_px_gamepad"
-                android:text="@string/mcl_option_customcontrol"
-                app:layout_constraintTop_toBottomOf="@id/news_button"/>
+                android:text="@string/mcl_option_customcontrol" />
 
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/install_jar_button"
-                style="@style/LauncherMenuButton.Universal"
+                style="@style/LauncherMenuButton.Side"
                 android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_px_java_run"
-                android:text="@string/main_install_jar_file"
-                app:layout_constraintTop_toBottomOf="@id/custom_control_button"
-                tools:layout_editor_absoluteX="0dp" />
+                android:text="@string/main_install_jar_file" />
 
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/share_logs_button"
-                style="@style/LauncherMenuButton.Universal"
+                style="@style/LauncherMenuButton.Side"
                 android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_px_sharelog"
-                android:text="@string/main_share_logs"
-                app:layout_constraintTop_toBottomOf="@id/install_jar_button" />
+                android:text="@string/main_share_logs" />
 
             <com.kdt.mcgui.LauncherMenuButton
                 android:id="@+id/open_files_button"
-                style="@style/LauncherMenuButton.Universal"
+                style="@style/LauncherMenuButton.Side"
                 android:layout_width="match_parent"
                 android:drawableStart="@drawable/ic_px_folder"
-                android:text="@string/mcl_button_open_directory"
-
-                app:layout_constraintTop_toBottomOf="@id/share_logs_button" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:text="@string/mcl_button_open_directory" />
+        </LinearLayout>
     </ScrollView>
 
+    <!-- Welcome title -->
+    <LinearLayout
+        android:id="@+id/title_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/center_guideline"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#B66CFF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:text="@string/anime_welcome_to"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold|italic" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#B66CFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="14"
+                android:text="@string/anime_word_anime"
+                android:textColor="@android:color/white"
+                android:textSize="32sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:shadowColor="#B66CFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="14"
+                android:text="@string/anime_word_launcher"
+                android:textColor="@color/anime_purple_light"
+                android:textSize="32sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anime_tagline"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <!-- Version / profile / play row -->
     <com.kdt.mcgui.mcVersionSpinner
         android:id="@+id/mc_version_spinner"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_32sdp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-
-        android:background="@android:color/transparent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/anime_card_bg"
         android:drawableEnd="@drawable/spinner_arrow"
-        app:drawableEndPadding="@dimen/_1sdp"
+        app:drawableEndPadding="@dimen/_2sdp"
         app:drawableEndSize="@dimen/_12sdp"
-
         app:drawableStartIntegerScaling="true"
-        app:drawableStartSize="@dimen/_36sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:drawableStartSize="@dimen/_30sdp"
+        app:layout_constraintBottom_toTopOf="@+id/news_card"
         app:layout_constraintEnd_toStartOf="@+id/edit_profile_button"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@id/center_guideline" />
 
     <ImageButton
         android:id="@+id/edit_profile_button"
-        android:layout_width="@dimen/_32sdp"
+        android:layout_width="@dimen/_42sdp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/_8sdp"
-
+        android:layout_marginStart="@dimen/_4sdp"
         android:background="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_px_edit"
         app:layout_constraintBottom_toBottomOf="@+id/mc_version_spinner"
         app:layout_constraintEnd_toStartOf="@+id/play_button"
+        app:layout_constraintStart_toEndOf="@id/mc_version_spinner"
         app:layout_constraintTop_toTopOf="@+id/mc_version_spinner" />
-
-
-    <!-- This view is for cosmetic purpose only -->
-    <View
-        android:id="@+id/_background_display_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="-8dp"
-        android:background="@drawable/anime_bottom_bar"
-
-        android:translationZ="-1dp"
-        app:layout_constraintTop_toTopOf="@id/mc_version_spinner" />
 
     <com.kdt.mcgui.MineButton
         android:id="@+id/play_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-
-
-        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:text="@string/main_play"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="@+id/mc_version_spinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1.3"
+        app:layout_constraintStart_toEndOf="@id/edit_profile_button"
         app:layout_constraintTop_toTopOf="@+id/mc_version_spinner" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- News card -->
+    <LinearLayout
+        android:id="@+id/news_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/anime_card_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/center_guideline">
 
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/anime_bg" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/anime_news_header"
+                android:textColor="@color/anime_pink"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/anime_news_title"
+                android:textColor="@color/anime_purple_light"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/anime_news_body"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

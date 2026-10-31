@@ -70,39 +70,64 @@
 			android:id="@+id/main_loading_screen"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:background="#BB000000"
+			android:background="#0B0618"
 			android:visibility="visible"
 			>
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:importantForAccessibility="no"
+				android:scaleType="centerCrop"
+				android:src="@drawable/anime_scene" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="16dp"
 				android:layout_gravity="center"
 				android:gravity="center"
 				android:orientation="vertical">
 
-				<ProgressBar
-					android:id="@+id/main_loading_screen_progress"
-					android:layout_width="24dp"
-					android:layout_height="24dp"
-					android:indeterminate="true" />
+				<ImageView
+					android:layout_width="86dp"
+					android:layout_height="66dp"
+					android:importantForAccessibility="no"
+					android:scaleType="fitCenter"
+					android:src="@drawable/loading_block" />
 
 				<TextView
 					android:id="@+id/main_loading_screen_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="12dp"
 					android:text="@string/loading_screen_title"
 					android:textColor="@android:color/white"
-					android:textSize="16sp" />
+					android:textSize="20sp"
+					android:textStyle="bold"
+					android:shadowColor="#B66CFF"
+					android:shadowRadius="12"
+					android:shadowDx="0"
+					android:shadowDy="0" />
 
 				<TextView
 					android:id="@+id/main_loading_screen_warning"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="4dp"
+					android:gravity="center"
+					android:paddingHorizontal="32dp"
 					android:text="@string/loading_screen_warning"
-					android:textColor="@android:color/darker_gray"
+					android:textColor="#CDBBF2"
 					android:textSize="12sp" />
+
+				<ProgressBar
+					android:id="@+id/main_loading_screen_progress"
+					style="?android:attr/progressBarStyleHorizontal"
+					android:layout_width="260dp"
+					android:layout_height="8dp"
+					android:layout_marginTop="18dp"
+					android:indeterminate="true"
+					android:indeterminateTint="#B66CFF" />
 			</LinearLayout>
 		</FrameLayout>
 

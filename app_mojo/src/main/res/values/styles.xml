@@ -68,6 +68,18 @@
         <item name="android:layout_height">@dimen/_66sdp</item>
     </style>
 
+    <style name="LauncherMenuButton.Side" parent="LauncherMenuButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/anime_nav_item</item>
+    </style>
+
     <style name="ThickDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/_1sdp</item>

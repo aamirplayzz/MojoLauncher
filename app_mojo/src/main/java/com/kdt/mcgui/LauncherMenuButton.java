@@ -47,4 +47,16 @@ public class LauncherMenuButton extends ExtendedButton {
         getExtendedViewData().setSizeCompounds(sizes);
         postProcessDrawables();
     }
+
+    /** Smaller padding and icon, used by the sidebar in the landscape layout. */
+    public void compact() {
+        Resources resources = getContext().getResources();
+        int padding = resources.getDimensionPixelSize(R.dimen._8sdp);
+        setCompoundDrawablePadding(padding);
+        setPaddingRelative(padding, getPaddingTop(), padding, getPaddingBottom());
+        int[] sizes = getExtendedViewData().getSizeCompounds();
+        sizes[0] = resources.getDimensionPixelSize(R.dimen._20sdp);
+        getExtendedViewData().setSizeCompounds(sizes);
+        postProcessDrawables();
+    }
 }

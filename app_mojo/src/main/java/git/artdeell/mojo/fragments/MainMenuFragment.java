@@ -5,6 +5,7 @@ import static git.artdeell.mojo.Tools.shareLog;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.kdt.mcgui.LauncherMenuButton;
 import com.kdt.mcgui.ProgressLayout;
 import com.kdt.mcgui.mcVersionSpinner;
 
@@ -58,6 +60,12 @@ public class MainMenuFragment extends Fragment {
         ImageButton mEditProfileButton = view.findViewById(R.id.edit_profile_button);
         Button mPlayButton = view.findViewById(R.id.play_button);
         mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            for(Button sideButton : new Button[]{mNewsButton, mDiscordButton, mCustomControlButton, mInstallJarButton, mShareLogsButton, mOpenDirectoryButton}) {
+                if(sideButton instanceof LauncherMenuButton) ((LauncherMenuButton) sideButton).compact();
+            }
+        }
 
         mNewsButton.setOnClickListener(v -> Tools.openURL(requireActivity(), Tools.URL_HOME));
         mDiscordButton.setOnClickListener(v -> Tools.openURL(requireActivity(), getString(R.string.social_media_invite)));

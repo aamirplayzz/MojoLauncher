@@ -11,7 +11,7 @@ particles:2
 bobView:false
 anaglyph3d:false
 advancedOpengl:false
-maxFps:60
+maxFps:260
 fboEnable:true
 difficulty:2
 fancyGraphics:false
