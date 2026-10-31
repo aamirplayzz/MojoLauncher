@@ -1,6 +1,6 @@
 # Anime Launcher
 
-Anime Launcher is a customised fork of [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher) (GPL-3.0) with an anime / neon-purple UI, 3D style buttons, a new logo and lighter defaults for low-end phones. All credit for the launcher core goes to the MojoLauncher and PojavLauncher authors. The original license is kept in `LICENSE`.
+Anime Launcher is a customised fork of [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher) (LGPL-3.0) with an anime / neon-purple UI, 3D style buttons, a new logo and lighter defaults for low-end phones. All credit for the launcher core goes to the MojoLauncher and PojavLauncher authors. The original license is kept in `LICENSE`.
 
 What is different from upstream:
 * App name and package id (`com.animelauncher.app`), so it installs next to the original launcher.

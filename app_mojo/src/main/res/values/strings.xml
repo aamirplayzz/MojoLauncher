@@ -583,6 +583,6 @@
     <string name="anime_launcher_version">Launcher v1.0.0</string>
     <string name="anime_tools_title">Tools</string>
     <string name="anime_about_title">About Anime Launcher</string>
-    <string name="anime_about_body">Anime Launcher v1.0.0\n\nA Minecraft: Java Edition launcher for Android with an anime look and lighter defaults for low-end phones.\n\nBased on MojoLauncher and PojavLauncher, released under the GPL-3.0 license. Thanks to their authors.</string>
+    <string name="anime_about_body">Anime Launcher v1.0.0\n\nA Minecraft: Java Edition launcher for Android with a unique anime-inspired interface and optimized settings for mobile devices.\n\nBased on MojoLauncher and PojavLauncher.\n\nMojoLauncher and PojavLauncher are licensed under the GNU LGPL v3 License.\n\nThird-party components are distributed under their respective licenses.\n\nThanks to all the original developers and contributors.</string>
     <string name="anime_close">Close</string>
 </resources>
