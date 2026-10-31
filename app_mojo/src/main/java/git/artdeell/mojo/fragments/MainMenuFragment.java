@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.kdt.mcgui.LauncherMenuButton;
 import com.kdt.mcgui.ProgressLayout;
 import com.kdt.mcgui.mcVersionSpinner;
 
@@ -60,29 +60,87 @@ public class MainMenuFragment extends Fragment {
         Button mPlayButton = view.findViewById(R.id.play_button);
         mVersionSpinner = view.findViewById(R.id.mc_version_spinner);
 
-        {
-            for(Button sideButton : new Button[]{mNewsButton, mDiscordButton, mCustomControlButton, mInstallJarButton, mShareLogsButton, mOpenDirectoryButton}) {
-                if(sideButton instanceof LauncherMenuButton) ((LauncherMenuButton) sideButton).compact();
-            }
+        if(mNewsButton != null) {
+            mNewsButton.setOnClickListener(v -> openWiki());
+            mNewsButton.setOnLongClickListener((v)->{
+                openGamepadMapper();
+                return true;
+            });
         }
+        if(mDiscordButton != null) mDiscordButton.setOnClickListener(v -> openSocial());
+        if(mCustomControlButton != null) mCustomControlButton.setOnClickListener(v -> openCustomControls());
+        if(mInstallJarButton != null) mInstallJarButton.setOnClickListener(v -> runInstallerWithConfirmation());
+        if(mShareLogsButton != null) mShareLogsButton.setOnClickListener((v) -> shareLog(requireContext()));
+        if(mOpenDirectoryButton != null) mOpenDirectoryButton.setOnClickListener((v)-> openGameDirectory(v.getContext()));
 
-        mNewsButton.setOnClickListener(v -> Tools.openURL(requireActivity(), Tools.URL_HOME));
-        mDiscordButton.setOnClickListener(v -> Tools.openURL(requireActivity(), getString(R.string.social_media_invite)));
-        mCustomControlButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), CustomControlsActivity.class)));
-        mInstallJarButton.setOnClickListener(v -> runInstallerWithConfirmation());
         mEditProfileButton.setOnClickListener(v -> mVersionSpinner.openProfileEditor(requireActivity()));
-
         mPlayButton.setOnClickListener(v -> ExtraCore.setValue(ExtraConstants.LAUNCH_GAME, true));
 
-        mShareLogsButton.setOnClickListener((v) -> shareLog(requireContext()));
+        bindSidebar(view);
+    }
 
-        mOpenDirectoryButton.setOnClickListener((v)-> openGameDirectory(v.getContext()));
-
-
-        mNewsButton.setOnLongClickListener((v)->{
-            Tools.swapFragment(requireActivity(), GamepadMapperFragment.class, GamepadMapperFragment.TAG, null);
-            return true;
+    private void bindSidebar(View view) {
+        View navVersions = view.findViewById(R.id.nav_versions);
+        View navSettings = view.findViewById(R.id.nav_settings);
+        View navTools = view.findViewById(R.id.nav_tools);
+        View navAbout = view.findViewById(R.id.nav_about);
+        if(navVersions != null) navVersions.setOnClickListener(v -> mVersionSpinner.performClick());
+        if(navSettings != null) navSettings.setOnClickListener(v -> {
+            View settingsButton = requireActivity().findViewById(R.id.setting_button);
+            if(settingsButton != null) settingsButton.performClick();
         });
+        if(navTools != null) {
+            navTools.setOnClickListener(v -> showToolsDialog());
+            navTools.setOnLongClickListener(v -> {
+                openGamepadMapper();
+                return true;
+            });
+        }
+        if(navAbout != null) navAbout.setOnClickListener(v -> new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.anime_about_title)
+                .setMessage(R.string.anime_about_body)
+                .setPositiveButton(R.string.anime_close, null)
+                .show());
+    }
+
+    private void showToolsDialog() {
+        final String[] items = new String[]{
+                getString(R.string.mcl_tab_wiki),
+                getString(R.string.mcl_button_social_media),
+                getString(R.string.mcl_option_customcontrol),
+                getString(R.string.main_install_jar_file),
+                getString(R.string.main_share_logs),
+                getString(R.string.mcl_button_open_directory)
+        };
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.anime_tools_title)
+                .setItems(items, (dialog, which) -> {
+                    switch (which) {
+                        case 0: openWiki(); break;
+                        case 1: openSocial(); break;
+                        case 2: openCustomControls(); break;
+                        case 3: runInstallerWithConfirmation(); break;
+                        case 4: shareLog(requireContext()); break;
+                        case 5: openGameDirectory(requireContext()); break;
+                    }
+                })
+                .show();
+    }
+
+    private void openWiki() {
+        Tools.openURL(requireActivity(), Tools.URL_HOME);
+    }
+
+    private void openSocial() {
+        Tools.openURL(requireActivity(), getString(R.string.social_media_invite));
+    }
+
+    private void openCustomControls() {
+        startActivity(new Intent(requireContext(), CustomControlsActivity.class));
+    }
+
+    private void openGamepadMapper() {
+        Tools.swapFragment(requireActivity(), GamepadMapperFragment.class, GamepadMapperFragment.TAG, null);
     }
 
     private void openGameDirectory(Context context) {

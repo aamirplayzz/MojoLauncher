@@ -7,6 +7,9 @@ on:
 permissions:
   contents: write
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -57,4 +60,15 @@ jobs:
           body: |
             Latest Anime Launcher APK. Download AnimeLauncher.apk below and install it.
             Built from commit ${{ github.sha }}.
+          files: AnimeLauncher.apk
+
+      - name: Rename APK
+        run: cp app_mojo/build/outputs/apk/full/debug/*.apk AnimeLauncher.apk
+
+      - name: Publish download link (Release)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Anime Launcher (latest)
+          body: Download AnimeLauncher.apk below and install it on your Android phone.
           files: AnimeLauncher.apk

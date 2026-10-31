@@ -52,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/anime_sidebar_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintEnd_toEndOf="@id/center_guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintEnd_toEndOf="@id/center_guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sidebar_logo">
@@ -84,47 +84,57 @@
             android:orientation="vertical"
             android:paddingBottom="@dimen/_8sdp">
 
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/news_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_px_book"
-                android:text="@string/mcl_tab_wiki" />
-
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/social_media_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_social_media"
-                android:text="@string/mcl_button_social_media" />
-
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/custom_control_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_px_gamepad"
-                android:text="@string/mcl_option_customcontrol" />
-
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/install_jar_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_px_java_run"
-                android:text="@string/main_install_jar_file" />
-
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/share_logs_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_px_sharelog"
-                android:text="@string/main_share_logs" />
-
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/open_files_button"
-                style="@style/LauncherMenuButton.Side"
-                android:layout_width="match_parent"
-                android:drawableStart="@drawable/ic_px_folder"
-                android:text="@string/mcl_button_open_directory" />
+            <LinearLayout
+                android:id="@+id/nav_home"
+                style="@style/AnimeNavItem"
+                android:background="@drawable/anime_nav_selected">
+                <ImageView
+                    style="@style/AnimeNavIcon"
+                    android:src="@drawable/ic_px_home" />
+                <TextView
+                    style="@style/AnimeNavText"
+                    android:text="@string/anime_nav_home" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/nav_versions"
+                style="@style/AnimeNavItem">
+                <ImageView
+                    style="@style/AnimeNavIcon"
+                    android:src="@drawable/ic_px_java" />
+                <TextView
+                    style="@style/AnimeNavText"
+                    android:text="@string/anime_nav_versions" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/nav_settings"
+                style="@style/AnimeNavItem">
+                <ImageView
+                    style="@style/AnimeNavIcon"
+                    android:src="@drawable/ic_px_sliders" />
+                <TextView
+                    style="@style/AnimeNavText"
+                    android:text="@string/anime_nav_settings" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/nav_tools"
+                style="@style/AnimeNavItem">
+                <ImageView
+                    style="@style/AnimeNavIcon"
+                    android:src="@drawable/ic_px_console" />
+                <TextView
+                    style="@style/AnimeNavText"
+                    android:text="@string/anime_nav_tools" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/nav_about"
+                style="@style/AnimeNavItem">
+                <ImageView
+                    style="@style/AnimeNavIcon"
+                    android:src="@drawable/ic_px_book" />
+                <TextView
+                    style="@style/AnimeNavText"
+                    android:text="@string/anime_nav_about" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -246,7 +256,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/center_guideline">
 
@@ -288,5 +298,51 @@
                 android:textSize="@dimen/_12ssp" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Bottom status bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:background="@drawable/anime_bottom_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/anime_ready_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/anime_ready_to_play"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/anime_button_3d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/anime_version_text"
+            app:layout_constraintStart_toEndOf="@id/anime_ready_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/anime_version_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/anime_launcher_version"
+            android:textColor="@color/anime_purple_light"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
