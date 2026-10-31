@@ -1,13 +1,22 @@
 # Anime Launcher
 
-Anime Launcher is a customised fork of [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher) (LGPL-3.0) with an anime / neon-purple UI, 3D style buttons, a new logo and lighter defaults for low-end phones. All credit for the launcher core goes to the MojoLauncher and PojavLauncher authors. The original license is kept in `LICENSE`.
+**NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
+
+Anime Launcher is a Minecraft: Java Edition launcher for Android with a unique anime-inspired interface and optimized settings for mobile devices. It is a modified version of [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher), which is based on [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher). Thanks to all the original developers and contributors.
+
+**Download:** https://github.com/aamirplayzz/MojoLauncher/releases/latest
 
 What is different from upstream:
 * App name and package id (`com.animelauncher.app`), so it installs next to the original launcher.
-* New launcher icon, anime artwork on the main menu, purple theme and raised 3D buttons.
-* Low-end defaults: lower internal resolution (540p / 480p target), sustained performance on, 60 FPS cap, minimal particles/clouds/shadows in the default `options.txt`.
+* New launcher icon, anime artwork, purple theme, raised 3D buttons, sidebar main menu and a new loading screen.
+* Low-end defaults: lower internal resolution (540p / 480p target), sustained performance on, minimal particles/clouds/shadows in the default `options.txt`.
+
+## License
+Anime Launcher is licensed under the **GNU LGPL v3** (see [LICENSE](LICENSE) and [COPYING](COPYING)). Third-party components keep their own licenses, listed at the end of this file. More details: [NOTICE.md](NOTICE.md). Privacy: [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
 
 ---
+
+## Original project README (MojoLauncher)
 
 <H1 align="center">MojoLauncher (a.k.a. MJLauncher)</H1>
 

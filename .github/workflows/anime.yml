@@ -56,5 +56,8 @@ jobs:
           name: Anime Launcher (latest build)
           body: |
             Latest Anime Launcher APK. Download AnimeLauncher.apk below and install it.
-            Built from commit ${{ github.sha }}.
+
+            NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+
+            Licensed under the GNU LGPL v3. Source code: https://github.com/aamirplayzz/MojoLauncher (built from commit ${{ github.sha }}). See NOTICE.md for licenses and changes.
           files: AnimeLauncher.apk

@@ -100,6 +100,8 @@ public class MainMenuFragment extends Fragment {
                 .setTitle(R.string.anime_about_title)
                 .setMessage(R.string.anime_about_body)
                 .setPositiveButton(R.string.anime_close, null)
+                .setNegativeButton(R.string.anime_source_code, (d, w) -> Tools.openURL(requireActivity(), "https://github.com/aamirplayzz/MojoLauncher"))
+                .setNeutralButton(R.string.anime_licenses, (d, w) -> Tools.openURL(requireActivity(), "https://github.com/aamirplayzz/MojoLauncher/blob/v3_openjdk/NOTICE.md"))
                 .show());
     }
 
