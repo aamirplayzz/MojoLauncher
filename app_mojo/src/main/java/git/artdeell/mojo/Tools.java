@@ -192,7 +192,7 @@ public final class Tools {
         ASSETS_PATH = DIR_GAME_NEW + "/assets";
         OBSOLETE_RESOURCES_PATH = DIR_GAME_NEW + "/resources";
         CTRLMAP_PATH = DIR_GAME_HOME + "/controlmap";
-        CTRLDEF_FILE = DIR_GAME_HOME + "/controlmap/anime_controls.json";
+        CTRLDEF_FILE = DIR_GAME_HOME + "/controlmap/anime_controls_v2.json";
     }
 
     public static void buildNotificationChannel(Context context){
