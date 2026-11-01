@@ -80,6 +80,14 @@ public class MainMenuFragment extends Fragment {
 
         bindSidebar(view);
         AnimeUpdater.checkOnStart(requireActivity());
+
+        android.widget.TextView versionText = view.findViewById(R.id.anime_version_text);
+        if(versionText != null) versionText.setText(getString(R.string.anime_launcher_version, appVersion()));
+    }
+
+    /** Version shown in the UI: 1.0 plus the build number, which grows with every release. */
+    private static String appVersion() {
+        return "1.0." + BuildConfig.VERSION_CODE;
     }
 
     private void bindSidebar(View view) {
