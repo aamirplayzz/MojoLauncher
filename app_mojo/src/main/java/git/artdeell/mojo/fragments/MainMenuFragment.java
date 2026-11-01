@@ -21,6 +21,7 @@ import com.kdt.mcgui.ProgressLayout;
 import git.artdeell.mojo.update.AnimeUpdater;
 import com.kdt.mcgui.mcVersionSpinner;
 
+import git.artdeell.mojo.BuildConfig;
 import git.artdeell.mojo.CustomControlsActivity;
 import git.artdeell.mojo.R;
 
@@ -100,7 +101,7 @@ public class MainMenuFragment extends Fragment {
         }
         if(navAbout != null) navAbout.setOnClickListener(v -> new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.anime_about_title)
-                .setMessage(R.string.anime_about_body)
+                .setMessage(getString(R.string.anime_about_body, appVersion()))
                 .setPositiveButton(R.string.anime_close, null)
                 .setNegativeButton(R.string.anime_source_code, (d, w) -> Tools.openURL(requireActivity(), "https://github.com/aamirplayzz/MojoLauncher"))
                 .setNeutralButton(R.string.anime_licenses, (d, w) -> Tools.openURL(requireActivity(), "https://github.com/aamirplayzz/MojoLauncher/blob/v3_openjdk/NOTICE.md"))

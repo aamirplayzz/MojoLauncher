@@ -30,6 +30,7 @@ import git.artdeell.mojo.utils.GameOptionsUtils;
 import git.artdeell.mojo.utils.JREUtils;
 import git.artdeell.mojo.utils.JSONUtils;
 import git.artdeell.mojo.utils.MCOptionUtils;
+import git.artdeell.mojo.utils.PerformanceProfile;
 import git.artdeell.mojo.utils.OldVersionsUtils;
 
 import java.io.File;
@@ -227,6 +228,7 @@ public class GameRunner {
             }
         }
 
+        PerformanceProfile.applyIfNeeded(gamedir);
         GameOptionsUtils.fixOptions(isLtw);
 
         if(isLtw && GpuUtils.getGlInfo().forcedMsaa) {
